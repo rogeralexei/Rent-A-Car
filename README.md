@@ -47,7 +47,7 @@ __/register__
 
 <p>[methods=”POST”]: Te permite registrarte como un usuario en la API. En caso de no estar registrado no podras realizar login, lo cual limitara el uso de la app y evitara que puedas rentar un carro.</p>
 
-```json
+```javascript
 {
   “username”: user_username,
   “password”: user_password
@@ -61,7 +61,7 @@ __/login__
 
 <p>[methods=”GET”,”POST”]: Al utilizer el metodo GET y estar loggeado te notificara bajo que usuario te encuentras loggeado, en caso de no estar loggeado, te solicitara que hagas login mediante a un POST request.</p>
 
-```json
+```javascript
 {
   “username”: user_username, 
   “password”: user_password
@@ -121,13 +121,13 @@ __/carros__
 
 ---
 
-__/carros/< marca >__
+**/carros/< marca >**
 
 <p>[methods=“GET”]: Nos permite obtener la información de una marca de carros especificos. < marca > funciona como una variable en el endpoint, esto quiere decir que puede ser intercambiable. Por ejemplo: si quiero buscar los carros de la marca “Honda” basta con ir al endpoint <em>/carros/Honda</em> y recibiremos un listado de todos los carros de la marca Honda.</p>
 
 ---
 
-__/editar_carro/< _id >__
+**/editar_carro/<_id>**
 
 <p>[methods=”PUT”]: Nos permite editar un carro especifico al proveer el id que este tiene dentro de la base de datos. La variable < _id > es intercambiable, el resultado sera diferente dependiendo de el id provisto.<p>
 
@@ -137,20 +137,20 @@ __/editar_carro/< _id >__
 {
   “modelo”: nuevo_modelo, 
   “marca”: nueva_marca ,
-  “año”: nuevo_año
+  “año”: nuevo_año,
   “kilometraje”: nuevo_kilometraje
 }
 ```
 ---
 
 
-__/eliminar_carro/< _id >__
+**/eliminar_carro/<_id>**
 
 <p> [methods=”DELETE”]: Elimina un carro. El carro se eliminara de acuerdo al < _id > en el endpoint. <p>
 
 ---
 
-__/rentar/< _id >__
+**/rentar/<_id >**
 
 <p>[methods=”GET”,”POST”]: Nos permite rentar un carro. El usuario loggeado puede seleccionar, basado en la lista de carros, el < _id > que quiera alquilar. El carro sera asociado directamente al usuario que se envie en el POST request. </p>
 
