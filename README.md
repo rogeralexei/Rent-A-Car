@@ -164,6 +164,18 @@ __/carros__
 
 ---
 
+## Mecanismos de Auth
+
+<p> Inicialmente se considero la idea de usar Flask-Dance, sistema oAuth. Pero para que todo fuera mas manual y con menos dependencias se utilizo el objeto session de Flask . Adicional a eso se coordino que la session pudiera tener unicamente una duracion de 30 min de la siguiente manera:</p>
+
+```python
+app.config['PERMANENT_SESSION_LIFETIME'] = datetime.timedelta(minutes=30)
+```
+
+_Nota: el modulo datetime tambien fue importado para realizar esta tarea_
+
+---
+
 ## Author
 
 👤 **Roger Urrutia**
