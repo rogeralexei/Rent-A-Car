@@ -39,8 +39,9 @@ el puerto puede ser cambiado dentro de el archivo app.py de la siguiente manera
 ```python
 app.run(port="puerto_deseado")
 ```
+---
 
-#### Rutas de Usuario
+### Rutas de Usuario
 
 __/register__
 
@@ -53,6 +54,8 @@ __/register__
 }
 ```
 _Nota: El password se encriptara automaticamente. Los valores enviado deben ser de tipo String._
+
+---
 
 __/login__
 
@@ -67,7 +70,9 @@ __/login__
 
 _Nota: El password es desencriptado automaticamente. En caso de no coincidir con el password seleccionado durante el registro no podras loggearte._
 
-__/user/<username>__
+---
+
+__/user/< username >__
 
 <p>[methods=”GET”]: Podras ver la informacion (perfil) de el usuario en el cual te encuentres actualmente.<p>
 
@@ -75,17 +80,23 @@ __/user/<username>__
 
 _Nota: Username es una variable utilizada dentro de el programa. Esto quiere decir que <username> en el endpoint debe ser igual al nombre del usuario. Por ejemplo: Inicie sesión como “jose12”entonces /user/jose12 seria el endpoint al que deberías acceder para ver tu perfil._
 
+---
+
 __/user/list_users__
 
 <p>[methods=”GET”]: Al hacer un GET request a este endpoint obtenemos la informacion de todos los usuarios registrados. </p>
 
 **Necesitas estar loggeado para ver la información**
 
+---
+
 __/logout__
 
 <p>[methods=”GET”]: Haces logout de la app.<p>
+	
+---
 
-#### Rutas de Carros
+### Rutas de Carros
 
 __/nuevo_carro__
 
@@ -93,53 +104,65 @@ __/nuevo_carro__
 
 **Necesitas estar loggeado para realizar esta acción**
 
-```json
+```javascript
 {
   “modelo”: modelo, 
   “marca”: marca ,
-	“año”: año,
-	“kilometraje”: kilometraje
+  “año”: año,
+  “kilometraje”: kilometraje
 }
 ```
+
+---
 
 __/carros__
 
 <p>[methods=”GET”]: Te permite obtener una lista de todos los carros dentro de la base de datos que esten disponibles para ser alquilados. Si hay un carro que no aparezca aquí es debido a que se encuentra alquilado. Para ver la informacion de ese carro debemos ver la lista de los usuarios y buscar el carro por marca especificamente.<p>
 
-__/carros/<marca>__
+---
+
+__/carros/< marca >__
 
 <p>[methods=“GET”]: Nos permite obtener la información de una marca de carros especificos. < marca > funciona como una variable en el endpoint, esto quiere decir que puede ser intercambiable. Por ejemplo: si quiero buscar los carros de la marca “Honda” basta con ir al endpoint <em>/carros/Honda</em> y recibiremos un listado de todos los carros de la marca Honda.</p>
 
-__/editar_carro/<_id>__
+---
+
+__/editar_carro/< _id >__
 
 <p>[methods=”PUT”]: Nos permite editar un carro especifico al proveer el id que este tiene dentro de la base de datos. La variable < _id > es intercambiable, el resultado sera diferente dependiendo de el id provisto.<p>
 
 **Necesitas estar loggeado para realizar esta acción**
 
-```json
+```javascript
 {
   “modelo”: nuevo_modelo, 
   “marca”: nueva_marca ,
-	“año”: nuevo_año
-	“kilometraje”: nuevo_kilometraje
+  “año”: nuevo_año
+  “kilometraje”: nuevo_kilometraje
 }
 ```
+---
 
-__/eliminar_carro/<_id>__
+
+__/eliminar_carro/< _id >__
 
 <p> [methods=”DELETE”]: Elimina un carro. El carro se eliminara de acuerdo al < _id > en el endpoint. <p>
 
-__/rentar/<_id>__
+---
+
+__/rentar/< _id >__
 
 <p>[methods=”GET”,”POST”]: Nos permite rentar un carro. El usuario loggeado puede seleccionar, basado en la lista de carros, el < _id > que quiera alquilar. El carro sera asociado directamente al usuario que se envie en el POST request. </p>
 
 **Necesitas estar loggeado para realizar esta acción**
 
-```json
+```javascript
 {
-      “username”: username
+  “username”: username
 }
 ```
+
+---
 
 ## Author
 
